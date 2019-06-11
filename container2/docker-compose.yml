@@ -1,0 +1,13 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: "container2"
+    ports:
+      - "13000:3000"
+    command: bin/rails s
+    volumes:
+      - .:/container2
+    tty: true
+    stdin_open: true
+

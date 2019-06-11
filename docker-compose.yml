@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.6
+    container_name: "container_db"
+    ports:
+      - "13306:3306"
+    volumes:
+      - container-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    networks:
+      - default
+      - container1_default
+      - container2_default
+
+volumes:
+  container-mysql-data:
+
+networks:
+  container1_default:
+    external: true
+  container2_default:
+    external: true
